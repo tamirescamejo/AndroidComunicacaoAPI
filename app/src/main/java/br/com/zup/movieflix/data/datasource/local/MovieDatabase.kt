@@ -6,9 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import br.com.zup.movieflix.data.datasource.local.dao.MovieDAO
+import br.com.zup.movieflix.data.model.Result
 import br.com.zup.movieflix.domain.model.Movie
 
-@Database(entities = [Movie::class], version = 1)
+@Database(entities = [Result::class], version = 2)
 @TypeConverters(Converters::class)
 abstract class MovieDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDAO
@@ -27,7 +28,8 @@ abstract class MovieDatabase : RoomDatabase() {
                     context.applicationContext,
                     MovieDatabase::class.java,
                     "filme_database"
-                ).build()
+                ).fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 return instance
             }

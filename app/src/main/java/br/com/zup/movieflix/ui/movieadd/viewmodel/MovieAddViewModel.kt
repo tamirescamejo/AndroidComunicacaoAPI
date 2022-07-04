@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import br.com.zup.movieflix.data.model.Result
 import br.com.zup.movieflix.domain.model.Director
 import br.com.zup.movieflix.domain.model.Movie
 import br.com.zup.movieflix.domain.usecase.MovieUseCase
@@ -14,9 +15,9 @@ import kotlinx.coroutines.withContext
 
 class MovieAddViewModel(application: Application) : AndroidViewModel(application) {
     private val movieUseCase = MovieUseCase(application)
-    val movieAddState = MutableLiveData<ViewState<Movie>>()
+    val movieAddState = MutableLiveData<ViewState<Result>>()
 
-    private fun insertMovie(movie: Movie) {
+    private fun insertMovie(movie: Result) {
         viewModelScope.launch {
             try {
                 val response = withContext(Dispatchers.IO) {
@@ -39,7 +40,7 @@ class MovieAddViewModel(application: Application) : AndroidViewModel(application
         if (tile.isNotEmpty() && sinopse.isNotEmpty()
             && nameDirector.isNotEmpty() && infoDirector.isNotEmpty()
         ) {
-            insertMovie(
+           /* insertMovie(
                 Movie(
                     title = tile,
                     sinopse = sinopse,
@@ -48,7 +49,7 @@ class MovieAddViewModel(application: Application) : AndroidViewModel(application
                         info = infoDirector
                     )
                 )
-            )
+            )*/
         } else {
             movieAddState.value =
                 ViewState.Error(Throwable("Por favor preencha os campos corretamente!"))

@@ -3,14 +3,18 @@ package br.com.zup.movieflix.domain.repository
 import br.com.zup.movieflix.data.datasource.local.dao.MovieDAO
 import br.com.zup.movieflix.data.datasource.network.RetrofitService
 import br.com.zup.movieflix.data.model.MovieResponse
-import br.com.zup.movieflix.domain.model.Movie
+import br.com.zup.movieflix.data.model.Result
 
 class MovieRepository(private val movieDAO: MovieDAO) {
 
-    fun getAllMoviesDB(): List<Movie> = movieDAO.getAllMovies()
+    fun getAllMoviesDB(): List<Result> = movieDAO.getAllMovies()
 
-    fun insertMovieDB(movie: Movie) {
-        movieDAO.insertMovie(movie)
+    fun insertMovieDB(result: Result) {
+        movieDAO.insertMovie(result)
+    }
+
+    fun insertAllMoviesDB(movies: List<Result>) {
+        movieDAO.insertAllMovies(movies)
     }
 
     suspend fun geAllMoviesNetwork(
