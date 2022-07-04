@@ -5,8 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import br.com.zup.movieflix.data.model.Result
-import br.com.zup.movieflix.domain.model.Director
-import br.com.zup.movieflix.domain.model.Movie
 import br.com.zup.movieflix.domain.usecase.MovieUseCase
 import br.com.zup.movieflix.ui.viewstate.ViewState
 import kotlinx.coroutines.Dispatchers

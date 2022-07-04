@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import br.com.zup.movieflix.MOVIE_KEY
 import br.com.zup.movieflix.data.model.Result
 import br.com.zup.movieflix.databinding.FragmentMovieDetailBinding
-import br.com.zup.movieflix.domain.model.Movie
 import br.com.zup.movieflix.ui.home.view.HomeActivity
 import com.squareup.picasso.Picasso
 

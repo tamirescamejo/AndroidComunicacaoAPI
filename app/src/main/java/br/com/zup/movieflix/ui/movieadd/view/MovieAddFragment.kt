@@ -1,15 +1,13 @@
 package br.com.zup.movieflix.ui.movieadd.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import br.com.zup.movieflix.databinding.FragmentMovieAddBinding
-import br.com.zup.movieflix.domain.model.Director
-import br.com.zup.movieflix.domain.model.Movie
 import br.com.zup.movieflix.ui.home.view.HomeActivity
 import br.com.zup.movieflix.ui.movieadd.viewmodel.MovieAddViewModel
 import br.com.zup.movieflix.ui.viewstate.ViewState

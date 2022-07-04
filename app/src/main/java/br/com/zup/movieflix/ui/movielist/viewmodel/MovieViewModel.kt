@@ -2,11 +2,8 @@ package br.com.zup.movieflix.ui.movielist.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.zup.movieflix.data.model.Result
-import br.com.zup.movieflix.domain.model.Movie
 import br.com.zup.movieflix.domain.model.SingleLiveEvent
 import br.com.zup.movieflix.domain.usecase.MovieUseCase
 import br.com.zup.movieflix.ui.viewstate.ViewState

@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import br.com.zup.movieflix.data.datasource.local.dao.MovieDAO
 import br.com.zup.movieflix.data.model.Result
-import br.com.zup.movieflix.domain.model.Movie
 
 @Database(entities = [Result::class], version = 2)
 @TypeConverters(Converters::class)
