@@ -35,26 +35,21 @@ class MovieAddFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.bvSaveMovie.setOnClickListener {
-            viewModel.insertMovie(
-                Movie(
-                    title = binding.etMovieTitleAdd.text.toString(),
-                    sinopse = binding.etMovieSinopseAdd.text.toString(),
-                    director = Director(
-                        name = binding.etMovieDirectorNameAdd.text.toString(),
-                        info = binding.etMovieDirectorInfoAdd.text.toString()
-                    )
-                )
+            viewModel.verificationMovie(
+                tile = binding.etMovieTitleAdd.text.toString(),
+                sinopse = binding.etMovieSinopseAdd.text.toString(),
+                nameDirector = binding.etMovieDirectorNameAdd.text.toString(),
+                infoDirector = binding.etMovieDirectorInfoAdd.text.toString()
             )
         }
-        initObserver()
     }
 
     private fun initObserver() {
         viewModel.movieAddState.observe(this.viewLifecycleOwner) {
             when (it) {
                 is ViewState.Success -> {
+                    cleanEditText()
                     Toast.makeText(context, "Filme cadastrado com sucesso!", Toast.LENGTH_LONG)
                         .show()
                 }
@@ -65,4 +60,13 @@ class MovieAddFragment : Fragment() {
             }
         }
     }
+
+    private fun cleanEditText() {
+        binding.etMovieTitleAdd.text.clear()
+        binding.etMovieSinopseAdd.text.clear()
+        binding.etMovieDirectorInfoAdd.text.clear()
+        binding.etMovieDirectorNameAdd.text.clear()
+    }
 }
+
+

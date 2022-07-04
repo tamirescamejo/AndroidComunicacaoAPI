@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import br.com.zup.movieflix.domain.model.Director
 import br.com.zup.movieflix.domain.model.Movie
 import br.com.zup.movieflix.domain.usecase.MovieUseCase
 import br.com.zup.movieflix.ui.viewstate.ViewState
@@ -15,7 +16,7 @@ class MovieAddViewModel(application: Application) : AndroidViewModel(application
     private val movieUseCase = MovieUseCase(application)
     val movieAddState = MutableLiveData<ViewState<Movie>>()
 
-    fun insertMovie(movie: Movie) {
+    private fun insertMovie(movie: Movie) {
         viewModelScope.launch {
             try {
                 val response = withContext(Dispatchers.IO) {
@@ -26,6 +27,31 @@ class MovieAddViewModel(application: Application) : AndroidViewModel(application
                 movieAddState.value =
                     ViewState.Error(Throwable("Não foi possível inserir o filme!"))
             }
+        }
+    }
+
+    fun verificationMovie(
+        tile: String,
+        sinopse: String,
+        nameDirector: String,
+        infoDirector: String
+    ) {
+        if (tile.isNotEmpty() && sinopse.isNotEmpty()
+            && nameDirector.isNotEmpty() && infoDirector.isNotEmpty()
+        ) {
+            insertMovie(
+                Movie(
+                    title = tile,
+                    sinopse = sinopse,
+                    director = Director(
+                        name = nameDirector,
+                        info = infoDirector
+                    )
+                )
+            )
+        } else {
+            movieAddState.value =
+                ViewState.Error(Throwable("Por favor preencha os campos corretamente!"))
         }
     }
 
