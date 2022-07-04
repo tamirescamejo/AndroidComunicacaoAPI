@@ -3,12 +3,13 @@ package br.com.zup.movieflix.ui.movielist.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import br.com.zup.movieflix.data.model.Result
 import br.com.zup.movieflix.databinding.MovieItemBinding
-import br.com.zup.movieflix.domain.model.Movie
+import com.squareup.picasso.Picasso
 
 class MovieAdapter(
-    private var movieList: MutableList<Movie>,
-    private val clickMovie: (movie: Movie) -> Unit
+    private var movieList: MutableList<Result>,
+    private val clickMovie: (result: Result) -> Unit
 ) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
@@ -29,20 +30,20 @@ class MovieAdapter(
 
     override fun getItemCount() = movieList.size
 
-    fun updateMovieList(newList: List<Movie>) {
+    fun updateMovieList(newList: MutableList<Result>) {
         if (movieList.size == 0) {
-            movieList = newList as MutableList<Movie>
+            movieList = newList
         } else {
             movieList.addAll(newList)
         }
         notifyDataSetChanged()
     }
 
-
     class ViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun showMovieInfo(movie: Movie) {
-            binding.tvMovieName.text = movie.title
-            binding.ivMoviePoster.setImageResource(movie.image)
+        fun showMovieInfo(result: Result) {
+            binding.tvMovieName.text = result.title
+            Picasso.get().load("http://image.tmdb.org/t/p/w500/${result.posterPath}")
+                .into(binding.ivMoviePoster)
         }
     }
 }

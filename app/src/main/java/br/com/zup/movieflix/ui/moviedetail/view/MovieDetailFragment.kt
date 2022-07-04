@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.com.zup.movieflix.MOVIE_KEY
+import br.com.zup.movieflix.data.model.Result
 import br.com.zup.movieflix.databinding.FragmentMovieDetailBinding
 import br.com.zup.movieflix.domain.model.Movie
 import br.com.zup.movieflix.ui.home.view.HomeActivity
+import com.squareup.picasso.Picasso
 
 class MovieDetailFragment : Fragment() {
     private lateinit var binding: FragmentMovieDetailBinding
@@ -27,13 +29,12 @@ class MovieDetailFragment : Fragment() {
     }
 
     private fun getPassedData() {
-        val movie = arguments?.getParcelable<Movie>(MOVIE_KEY)
+        val movie = arguments?.getParcelable<Result>(MOVIE_KEY)
         movie?.let {
-            binding.imageView.setImageResource(it.image)
+            Picasso.get().load("http://image.tmdb.org/t/p/w500/${it.posterPath}")
+                .into(binding.imageView)
             binding.tvMovieTitle.text = it.title
-            binding.tvMovieSinopse.text = it.sinopse
-            binding.tvDirectorName.text = it.director.name
-            binding.tvDirectorInfo.text = it.director.info
+            binding.tvMovieSinopse.text = it.overview
             (activity as HomeActivity).supportActionBar?.title = it.title
         }
     }

@@ -20,7 +20,7 @@ class MovieAddViewModel(application: Application) : AndroidViewModel(application
         viewModelScope.launch {
             try {
                 val response = withContext(Dispatchers.IO) {
-                    movieUseCase.insertMovie(movie)
+                    movieUseCase.insertMovieDB(movie)
                 }
                 movieAddState.value = response
             } catch (ex: Exception) {

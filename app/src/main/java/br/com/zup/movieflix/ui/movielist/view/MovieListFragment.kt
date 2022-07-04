@@ -15,6 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.movieflix.MOVIE_KEY
 import br.com.zup.movieflix.R
+import br.com.zup.movieflix.data.model.Result
 import br.com.zup.movieflix.databinding.FragmentMovieListBinding
 import br.com.zup.movieflix.domain.model.Movie
 import br.com.zup.movieflix.ui.home.view.HomeActivity
@@ -43,13 +44,9 @@ class MovieListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as HomeActivity).supportActionBar?.title = getString(R.string.movie_title_menu)
-        initObserver()
-        setUpRvMovieList()
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         viewModel.getAllMovies()
+        setUpRvMovieList()
+        initObserver()
     }
 
     private fun initObserver() {
@@ -57,7 +54,7 @@ class MovieListFragment : Fragment() {
 
             when (it) {
                 is ViewState.Success -> {
-                    adapter.updateMovieList(it.data)
+                    adapter.updateMovieList(it.data.toMutableList())
                 }
                 is ViewState.Error -> {
                     Toast.makeText(
@@ -76,8 +73,8 @@ class MovieListFragment : Fragment() {
         binding.rvMovieList.layoutManager = LinearLayoutManager(context)
     }
 
-    private fun goToMovieDetail(movie: Movie) {
-        val bundle = bundleOf(MOVIE_KEY to movie)
+    private fun goToMovieDetail(result: Result) {
+        val bundle = bundleOf(MOVIE_KEY to result)
 
         NavHostFragment.findNavController(this).navigate(
             R.id.action_movieListFragment_to_movieDetailFragment, bundle
