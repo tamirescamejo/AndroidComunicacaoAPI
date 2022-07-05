@@ -3,7 +3,7 @@ package br.com.zup.movieflix.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Result(
+data class MovieResult(
     @SerializedName("adult")
     val adult: Boolean = false,
     @SerializedName("backdrop_path")

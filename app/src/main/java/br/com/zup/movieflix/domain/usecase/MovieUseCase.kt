@@ -1,11 +1,8 @@
 package br.com.zup.movieflix.domain.usecase
 
 import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import br.com.zup.movieflix.*
 import br.com.zup.movieflix.data.datasource.local.MovieDatabase
-import br.com.zup.movieflix.domain.model.Director
+import br.com.zup.movieflix.data.model.MovieResult
 import br.com.zup.movieflix.domain.model.Movie
 import br.com.zup.movieflix.domain.repository.MovieRepository
 import br.com.zup.movieflix.ui.viewstate.ViewState
@@ -29,6 +26,15 @@ class MovieUseCase(application: Application) {
             ViewState.Success(movie)
         } catch (ex: Exception) {
             ViewState.Error(Exception("Não foi possível cadastrar o filme!"))
+        }
+    }
+
+    suspend fun getAllMoviesNetwork(): ViewState<List<MovieResult>>{
+        return try {
+            val movies = movieRepository.geAllMoviesNetwork("pt-BR")
+            ViewState.Success(movies.movieResults)
+        }catch (ex: Exception){
+            ViewState.Error(Exception("Não foi possível carregar a lista de filmes da internet!"))
         }
     }
 }
