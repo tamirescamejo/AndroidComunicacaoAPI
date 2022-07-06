@@ -2,37 +2,42 @@ package br.com.zup.movieflix.data.model
 
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
+@Entity(tableName = "movies")
 data class MovieResult(
-    @SerializedName("adult")
-    val adult: Boolean = false,
-    @SerializedName("backdrop_path")
-    val backdropPath: String = "",
-    @SerializedName("genre_ids")
-    val genreIds: List<Int> = listOf(),
     @SerializedName("id")
-    val id: Int = 0,
+    @PrimaryKey(autoGenerate = false)
+    var id: Int = 0,
+
+    @SerializedName("adult")
+    var adult: Boolean = false,
+    @SerializedName("backdrop_path")
+    var backdropPath: String = "",
+    @SerializedName("genre_ids")
+    var genreIds: List<Int> = listOf(),
     @SerializedName("original_language")
-    val originalLanguage: String = "",
+    var originalLanguage: String = "",
     @SerializedName("original_title")
-    val originalTitle: String = "",
+    var originalTitle: String = "",
     @SerializedName("overview")
-    val overview: String = "",
+    var overview: String = "",
     @SerializedName("popularity")
-    val popularity: Double = 0.0,
+    var popularity: Double = 0.0,
     @SerializedName("poster_path")
-    val posterPath: String = "",
+    var posterPath: String = "",
     @SerializedName("release_date")
-    val releaseDate: String = "",
+    var releaseDate: String = "",
     @SerializedName("title")
-    val title: String = "",
+    var title: String = "",
     @SerializedName("video")
-    val video: Boolean = false,
+    var video: Boolean = false,
     @SerializedName("vote_average")
-    val voteAverage: Double = 0.0,
+    var voteAverage: Double = 0.0,
     @SerializedName("vote_count")
-    val voteCount: Int = 0
+    var voteCount: Int = 0
 ): Parcelable
