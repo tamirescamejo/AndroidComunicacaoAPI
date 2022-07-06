@@ -19,10 +19,10 @@ class MovieAddViewModel(application: Application) : AndroidViewModel(application
     private fun insertMovie(movie: Movie) {
         viewModelScope.launch {
             try {
-                val response = withContext(Dispatchers.IO) {
-                    movieUseCase.insertMovie(movie)
-                }
-                movieAddState.value = response
+//                val response = withContext(Dispatchers.IO) {
+//                    movieUseCase.insertMovie(movie)
+//                }
+//                movieAddState.value = response
             } catch (ex: Exception) {
                 movieAddState.value =
                     ViewState.Error(Throwable("Não foi possível inserir o filme!"))
