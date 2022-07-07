@@ -15,8 +15,10 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
     private val movieUseCase = MovieUseCase(application)
     val movieListState = SingleLiveEvent<ViewState<List<MovieResult>>>()
     val movieFavoritedState = SingleLiveEvent<ViewState<MovieResult>>()
+    val loading = SingleLiveEvent<ViewState<Boolean>>()
 
     fun getAllMovies() {
+        loading.value = ViewState.Loading(true)
         viewModelScope.launch {
             try {
                 val response = withContext(Dispatchers.IO) {
@@ -26,6 +28,8 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
             } catch (ex: Exception) {
                 movieListState.value =
                     ViewState.Error(Throwable("Não foi possível carregar a lista vinda da internet!"))
+            } finally {
+                loading.value = ViewState.Loading(false)
             }
         }
     }

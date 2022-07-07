@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.constraintlayout.motion.widget.Key.VISIBILITY
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.withStateAtLeast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.transition.Visibility
 import br.com.zup.movieflix.MOVIE_KEY
 import br.com.zup.movieflix.R
 import br.com.zup.movieflix.data.model.MovieResult
@@ -83,6 +86,15 @@ class MovieListFragment : Fragment() {
                         "${it.throwable.message}",
                         Toast.LENGTH_LONG
                     ).show()
+                }
+                else -> {}
+            }
+        }
+
+        viewModel.loading.observe(this.viewLifecycleOwner) {
+            when (it) {
+                is ViewState.Loading -> {
+                    binding.pbLoading.isVisible = it.loading == true
                 }
                 else -> {}
             }
