@@ -15,12 +15,12 @@ interface MovieDAO {
     @Query("SELECT * FROM movies WHERE isFavorite = 1")
     fun getAllMoviesFavorited(): List<MovieResult>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertMovie(movie: MovieResult)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAllMovies(listMovies: List<MovieResult>)
 
-    @Update(onConflict = OnConflictStrategy.REPLACE)
+    @Update(onConflict = OnConflictStrategy.IGNORE)
     fun updateMovieFavorite(movie: MovieResult)
 }

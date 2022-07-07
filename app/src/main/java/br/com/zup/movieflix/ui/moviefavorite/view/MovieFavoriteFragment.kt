@@ -37,6 +37,11 @@ class MovieFavoriteFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAllMoviesFavorited()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (activity as HomeActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -46,7 +51,6 @@ class MovieFavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initObserver()
         setUpRvMovieList()
-        viewModel.getAllMoviesFavorited()
     }
 
     private fun initObserver() {

@@ -32,7 +32,7 @@ class MovieFavoriteAdapter(
             movie.isFavorite = !movie.isFavorite
             clickDisfavor(movie)
             movieList.remove(movie)
-            notifyItemChanged(position)
+            notifyItemRemoved(position)
         }
     }
 
