@@ -9,7 +9,7 @@ import br.com.zup.movieflix.data.datasource.local.dao.MovieDAO
 import br.com.zup.movieflix.data.model.MovieResult
 import br.com.zup.movieflix.domain.model.Movie
 
-@Database(entities = [MovieResult::class], version = 2)
+@Database(entities = [MovieResult::class], version = 3)
 @TypeConverters(Converters::class)
 abstract class MovieDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDAO

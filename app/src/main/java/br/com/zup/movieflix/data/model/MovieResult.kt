@@ -39,5 +39,7 @@ data class MovieResult(
     @SerializedName("vote_average")
     var voteAverage: Double = 0.0,
     @SerializedName("vote_count")
-    var voteCount: Int = 0
+    var voteCount: Int = 0,
+
+    var isFavorite: Boolean
 ): Parcelable
