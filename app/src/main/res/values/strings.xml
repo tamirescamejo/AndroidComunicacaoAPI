@@ -26,6 +26,7 @@
     <string name="movie_title_menu">Filmes</string>
     <string name="movie_title_detail">Detalhe</string>
     <string name="movie_add_title_menu">Novo Filme</string>
+    <string name="movie_favorite_title_menu">Favoritos</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="movie_name_add">Nome do filme</string>

@@ -5,8 +5,8 @@
         android:icon="@drawable/ic_movie"
         android:title="@string/movie_title_menu"/>
     <item
-        android:id="@+id/movieAddFragment"
+        android:id="@+id/movieFavoriteFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_movie_add"
-        android:title="@string/movie_add_title_menu"/>
+        android:icon="@drawable/ic_disfavor"
+        android:title="@string/movie_favorite_title_menu"/>
 </menu>
