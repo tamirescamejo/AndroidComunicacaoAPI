@@ -19,7 +19,11 @@
         android:id="@+id/movieFavoriteFragment"
         android:name="br.com.zup.movieflix.ui.moviefavorite.view.MovieFavoriteFragment"
         android:label="Favoritos"
-        tools:layout="@layout/fragment_movie_favorite" />
+        tools:layout="@layout/fragment_movie_favorite" >
+        <action
+            android:id="@+id/action_movieFavoriteFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/movieDetailFragment"

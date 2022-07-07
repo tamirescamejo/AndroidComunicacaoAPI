@@ -16,8 +16,8 @@ import kotlinx.coroutines.withContext
 
 class MovieFavoriteViewModel(application: Application) : AndroidViewModel(application) {
     private val movieUseCase = MovieUseCase(application)
-    private val movieListFavoriteState = SingleLiveEvent<ViewState<List<MovieResult>>>()
-    private val movieDisfavorState = SingleLiveEvent<ViewState<MovieResult>>()
+    val movieListFavoriteState = SingleLiveEvent<ViewState<List<MovieResult>>>()
+    val movieDisfavorState = SingleLiveEvent<ViewState<MovieResult>>()
 
     fun disfavorMovie(movie: MovieResult) {
         viewModelScope.launch {
