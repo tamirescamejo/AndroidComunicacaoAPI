@@ -18,8 +18,9 @@
     <fragment
         android:id="@+id/movieFavoriteFragment"
         android:name="br.com.zup.movieflix.ui.moviefavorite.view.MovieFavoriteFragment"
-        android:label="Cadastro"
+        android:label="Favoritos"
         tools:layout="@layout/fragment_movie_favorite" />
+
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="br.com.zup.movieflix.ui.moviedetail.view.MovieDetailFragment"
