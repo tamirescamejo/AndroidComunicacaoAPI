@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import br.com.zup.movieflix.MOVIE_KEY
+import br.com.zup.movieflix.R
 import br.com.zup.movieflix.URL_BASE_IMAGE
 import br.com.zup.movieflix.data.model.MovieResult
 import br.com.zup.movieflix.databinding.FragmentMovieDetailBinding
@@ -39,6 +41,16 @@ class MovieDetailFragment : Fragment() {
             binding.tvMovieTitle.text = it.title
 
             binding.tvMovieSinopse.text = it.overview
+
+            binding.ivFavoriteDetail.setImageDrawable(
+                ContextCompat.getDrawable(
+                    binding.root.context,
+                    if (it.isFavorite)
+                        R.drawable.ic_favorite
+                    else
+                        R.drawable.ic_disfavor
+                )
+            )
 
             (activity as HomeActivity).supportActionBar?.title = it.title
         }

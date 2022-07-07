@@ -41,36 +41,15 @@
             app:layout_constraintTop_toBottomOf="@+id/tvMovieTitle"
             tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
 
-        <TextView
-            android:id="@+id/tvDirectorName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_16"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toEndOf="@+id/tvMovieSinopse"
-            app:layout_constraintStart_toStartOf="@+id/tvMovieSinopse"
-            app:layout_constraintTop_toBottomOf="@+id/tvMovieSinopse"
-            tools:text="Nome do Diretor" />
-
-        <TextView
-            android:id="@+id/tvDirectorInfo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_16"
-            app:layout_constraintEnd_toEndOf="@+id/tvDirectorName"
-            app:layout_constraintStart_toStartOf="@+id/tvDirectorName"
-            app:layout_constraintTop_toBottomOf="@+id/tvDirectorName"
-            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-
         <ImageView
+            android:id="@+id/ivFavoriteDetail"
             android:layout_width="@dimen/width_50"
             android:layout_height="@dimen/height_50"
             android:src="@drawable/ic_disfavor"
             android:layout_marginTop="@dimen/margin_16"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tvDirectorInfo"
-            app:layout_constraintTop_toBottomOf="@+id/tvDirectorInfo" />
+            app:layout_constraintEnd_toEndOf="@+id/tvMovieSinopse"
+            app:layout_constraintTop_toBottomOf="@+id/tvMovieSinopse" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_disfavor.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_favorite.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_movie.xml" value="0.1375" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.335" />
@@ -11,7 +14,8 @@
         <entry key="app/src/main/res/layout/activity_movie_detail.xml" value="0.1911231884057971" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/fragment_movie_add.xml" value="0.2033514492753623" />
-        <entry key="app/src/main/res/layout/fragment_movie_detail.xml" value="0.11551983927674535" />
+        <entry key="app/src/main/res/layout/fragment_movie_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_movie_favorite.xml" value="0.16757246376811594" />
         <entry key="app/src/main/res/layout/fragment_movie_list.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/movie_item.xml" value="0.375" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25833333333333336" />
