@@ -17,6 +17,12 @@ class MovieRepository(private val movieDAO: MovieDAO) {
         movieDAO.insertAllMovies(listMovies)
     }
 
+    suspend fun getAllMoviesFavorited(): List<MovieResult> = movieDAO.getAllMoviesFavorited()
+
+    suspend fun updateMovieFavorited(movie: MovieResult){
+        movieDAO.updateMovieFavorite(movie)
+    }
+
     suspend fun geAllMoviesNetwork(language: String?): MovieResponse {
         return RetrofitService.apiService.getAllMoviesNetwork(
             language = language

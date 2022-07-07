@@ -19,6 +19,24 @@ class MovieUseCase(application: Application) {
         }
     }
 
+    suspend fun getAllMoviesFavorited(): ViewState<List<MovieResult>>{
+        return try {
+            val movies = movieRepository.getAllMoviesFavorited()
+            ViewState.Success(movies)
+        }catch (ex: Exception){
+            ViewState.Error(Exception("Não foi possível carregar a lista de filmes favoritos!"))
+        }
+    }
+
+    suspend fun updateMovieFavorite(movie: MovieResult): ViewState<MovieResult>{
+        return try {
+            movieRepository.updateMovieFavorited(movie)
+            ViewState.Success(movie)
+        }catch (ex: Exception){
+            ViewState.Error(Exception("Não foi possível atualizar o filme!"))
+        }
+    }
+
     suspend fun insertMovie(movie: MovieResult): ViewState<MovieResult> {
         return try {
             movieRepository.insertMovie(movie)
