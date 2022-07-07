@@ -46,11 +46,12 @@ class MovieListFragment : Fragment() {
         (activity as HomeActivity).supportActionBar?.title = getString(R.string.movie_title_menu)
         initObserver()
         setUpRvMovieList()
+        viewModel.getAllMovies()
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.getAllMovies()
     }
 
     private fun initObserver() {
