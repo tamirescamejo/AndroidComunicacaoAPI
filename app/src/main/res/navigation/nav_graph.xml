@@ -16,10 +16,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/movieAddFragment"
-        android:name="br.com.zup.movieflix.ui.movieadd.view.MovieAddFragment"
+        android:id="@+id/movieFavoriteFragment"
+        android:name="br.com.zup.movieflix.ui.moviefavorite.view.MovieFavoriteFragment"
         android:label="Cadastro"
-        tools:layout="@layout/fragment_movie_add" />
+        tools:layout="@layout/fragment_movie_favorite" />
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="br.com.zup.movieflix.ui.moviedetail.view.MovieDetailFragment"
