@@ -30,7 +30,7 @@ class MovieListFragment : Fragment() {
     }
 
     private val adapter: MovieAdapter by lazy {
-        MovieAdapter(arrayListOf(), this::goToMovieDetail)
+        MovieAdapter(arrayListOf(), this::goToMovieDetail, this::favoritedMovie)
     }
 
     override fun onCreateView(
@@ -70,6 +70,26 @@ class MovieListFragment : Fragment() {
                 else -> {}
             }
         }
+
+        viewModel.movieFavoritedState.observe(this.viewLifecycleOwner) {
+            when (it) {
+                is ViewState.Success -> {
+                    Toast.makeText(
+                        context,
+                        "Filme ${it.data.title} foi favoritado com sucesso!",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                is ViewState.Error -> {
+                    Toast.makeText(
+                        context,
+                        "${it.throwable.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                else -> {}
+            }
+        }
     }
 
     private fun setUpRvMovieList() {
@@ -83,5 +103,9 @@ class MovieListFragment : Fragment() {
         NavHostFragment.findNavController(this).navigate(
             R.id.action_movieListFragment_to_movieDetailFragment, bundle
         )
+    }
+
+    private fun favoritedMovie(movie: MovieResult){
+        viewModel.updateMovieFavorited(movie)
     }
 }
